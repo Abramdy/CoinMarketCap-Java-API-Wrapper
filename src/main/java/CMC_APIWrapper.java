@@ -89,13 +89,33 @@ public class CMC_APIWrapper {
 
     // get info about a currency
     public String getCurrency(String id) {
-
+        try {
+            HttpResponse<String> response = Unirest.get("https://api.coinmarketcap.com/v1/ticker/" + id.toLowerCase() + "/")
+                    .header("market", "BTC-LTC")
+                    .header("cache-control", "no-cache")
+                    .asString();
+            currentResponse = response.getBody();
+        } catch (Exception e) {
+            System.out.println("An error occurred while sending your request: ");
+            e.printStackTrace();
+        }
         return currentResponse;
     }
 
     // the convert argument adds the 3 extra pieces of information
     public String getCurrency(String id, String convert) {
-
+        try {
+            HttpResponse<String> response = Unirest.get("https://api.coinmarketcap.com/v1/ticker/" + id.toLowerCase() +
+                    "/?convert=" + convert)
+                    .header("market", "BTC-LTC")
+                    .header("cache-control", "no-cache")
+                    .asString();
+            currentResponse = response.getBody();
+        }
+        catch (Exception e) {
+            System.out.println("An error occurred while sending your request: ");
+            e.printStackTrace();
+        }
         return currentResponse;
     }
 
