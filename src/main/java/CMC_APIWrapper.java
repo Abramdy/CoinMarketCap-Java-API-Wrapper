@@ -1,9 +1,12 @@
 public class CMC_APIWrapper {
 
+    String currentResponse;
+
     // constructor
     public CMC_APIWrapper() {
 
     }
+
 
 
     // ----- Top currencies (endpoint: /ticker/) ----- //
@@ -16,21 +19,25 @@ public class CMC_APIWrapper {
     // returns a full list of all currencies
     public String getTopCurrencies() {
 
+        return currentResponse;
     }
 
     // returns a list of currencies that stops after a specified amount
     public String getTopCurrencies(int limit) {
 
+        return currentResponse;
     }
 
     // returns a list of currencies and adds on the 3 extra pieces of info to each about a real world currency
     public String getTopCurrencies(String convert) {
 
+        return currentResponse;
     }
 
     // returns a list with both a limit (stops after x currencies) and extra info about a real world currency
     public String getTopCurrencies(int limit, String convert) {
 
+        return currentResponse;
     }
 
 
@@ -43,11 +50,13 @@ public class CMC_APIWrapper {
     // get info about a currency
     public String getCurrency(String id) {
 
+        return currentResponse;
     }
 
     // the convert argument adds the 3 extra pieces of information
     public String getCurrency(String id, String convert) {
 
+        return currentResponse;
     }
 
 
@@ -60,11 +69,13 @@ public class CMC_APIWrapper {
     // get general info about the market
     public String getGlobalData() {
 
+        return currentResponse;
     }
 
     // adds 24h volume & market cap in [convert] currency
     public String getGlobalData(String convert) {
 
+        return currentResponse;
     }
 
 }
