@@ -36,19 +36,47 @@ public class CMC_APIWrapper {
 
     // returns a list of currencies that stops after a specified amount
     public String getTopCurrencies(int limit) {
-
+        try {
+            HttpResponse<String> response = Unirest.get("https://api.coinmarketcap.com/v1/ticker/?limit=" + limit)
+                    .header("market", "BTC-LTC")
+                    .header("cache-control", "no-cache")
+                    .asString();
+            currentResponse = response.getBody();
+        } catch (Exception e) {
+            System.out.println("An error occurred while sending your request: ");
+            e.printStackTrace();
+        }
         return currentResponse;
     }
 
     // returns a list of currencies and adds on the 3 extra pieces of info to each about a real world currency
     public String getTopCurrencies(String convert) {
-
+        try {
+            HttpResponse<String> response = Unirest.get("https://api.coinmarketcap.com/v1/ticker/?convert=" + convert)
+                    .header("market", "BTC-LTC")
+                    .header("cache-control", "no-cache")
+                    .asString();
+            currentResponse = response.getBody();
+        } catch (Exception e) {
+            System.out.println("An error occurred while sending your request: ");
+            e.printStackTrace();
+        }
         return currentResponse;
     }
 
     // returns a list with both a limit (stops after x currencies) and extra info about a real world currency
     public String getTopCurrencies(int limit, String convert) {
-
+        try {
+            HttpResponse<String> response = Unirest.get("https://api.coinmarketcap.com/v1/ticker/?convert=" + convert +
+                    "&limit=" + limit)
+                    .header("market", "BTC-LTC")
+                    .header("cache-control", "no-cache")
+                    .asString();
+            currentResponse = response.getBody();
+        } catch (Exception e) {
+            System.out.println("An error occurred while sending your request: ");
+            e.printStackTrace();
+        }
         return currentResponse;
     }
 
