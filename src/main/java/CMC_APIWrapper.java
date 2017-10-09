@@ -155,4 +155,44 @@ public class CMC_APIWrapper {
         return currentResponse;
     }
 
+    //  ------------- EXTRAS  ------------- //
+
+    /* I have added a text parser for your convenience. Normally the String you get is (formatted like this):
+    [
+      {
+        "id": "bitcoin",
+        "name": "Bitcoin",
+        "symbol": "BTC",
+      }
+    ]
+
+    This is all contained in one String object, so you have to parse it yourself and maybe put it into an array.
+    This function does it for you and turns something like that example into something like this:
+
+    array[0] ---> "id": "bitcoin"
+    array[1] ---> "name": "Bitcoin"
+    array[2] ---> "symbol": "BTC"
+
+    Of course, I don't actually add 'array[x]' into your string, that's just showing you that each line is
+    split into the array. Take note that the comma at the end is also removed.
+
+    To use this, first store a request as a string and then send it into the parser.
+    To newer programmers who don't know, you could also do it all on one line with:
+       String[] x = parseInformation(myAPIObject.getCurrency("bitcoin"));
+    */
+
+    // parses a response string. returns an array without the extra characters
+    public String[] parseInformation(String unparsedResponse) {
+        String[] returnArray;
+
+        // replace unneeded characters
+        unparsedResponse = unparsedResponse.replace("[", ""); // replace [
+        unparsedResponse = unparsedResponse.replace("]", ""); // replace ]
+        unparsedResponse = unparsedResponse.replace("{", ""); // replace {
+        unparsedResponse = unparsedResponse.replace("}", ""); // replace }
+
+        returnArray = unparsedResponse.split(",");
+
+        return returnArray;
+    }
 }
