@@ -169,12 +169,12 @@ public class CMC_APIWrapper {
     This is all contained in one String object, so you have to parse it yourself and maybe put it into an array.
     This function does it for you and turns something like that example into something like this:
 
-    array[0] ---> "id": "bitcoin"
-    array[1] ---> "name": "Bitcoin"
-    array[2] ---> "symbol": "BTC"
+    array[0] ---> id:bitcoin
+    array[1] ---> name:Bitcoin
+    array[2] ---> symbol:BTC
 
     Of course, I don't actually add 'array[x]' into your string, that's just showing you that each line is
-    split into the array. Take note that the comma at the end is also removed.
+    split into the array. Take note that the comma at the end is also removed. It also removes spaces.
 
     To use this, first store a request as a string and then send it into the parser.
     To newer programmers who don't know, you could also do it all on one line with:
@@ -193,6 +193,10 @@ public class CMC_APIWrapper {
 
         returnArray = unparsedResponse.split(",");
 
+        for(int i = 0; i < returnArray.length; i++) {
+            returnArray[i] = returnArray[i].replaceAll("\\s+","");
+            returnArray[i] = returnArray[i].replaceAll("\"", "");
+        }
         return returnArray;
     }
 }
