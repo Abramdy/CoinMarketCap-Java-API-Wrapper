@@ -1,3 +1,6 @@
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.Unirest;
+
 public class CMC_APIWrapper {
 
     String currentResponse;
@@ -18,7 +21,16 @@ public class CMC_APIWrapper {
 
     // returns a full list of all currencies
     public String getTopCurrencies() {
-
+        try {
+            HttpResponse<String> response = Unirest.get("https://api.coinmarketcap.com/v1/ticker/")
+                    .header("market", "BTC-LTC")
+                    .header("cache-control", "no-cache")
+                    .asString();
+            currentResponse = response.getBody();
+        } catch (Exception e) {
+            System.out.println("An error occurred while sending your request: ");
+            e.printStackTrace();
+        }
         return currentResponse;
     }
 
