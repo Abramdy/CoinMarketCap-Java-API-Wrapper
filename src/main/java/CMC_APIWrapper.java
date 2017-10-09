@@ -111,8 +111,7 @@ public class CMC_APIWrapper {
                     .header("cache-control", "no-cache")
                     .asString();
             currentResponse = response.getBody();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("An error occurred while sending your request: ");
             e.printStackTrace();
         }
@@ -128,13 +127,31 @@ public class CMC_APIWrapper {
 
     // get general info about the market
     public String getGlobalData() {
-
+        try {
+            HttpResponse<String> response = Unirest.get("https://api.coinmarketcap.com/v1/global/")
+                    .header("market", "BTC-LTC")
+                    .header("cache-control", "no-cache")
+                    .asString();
+            currentResponse = response.getBody();
+        } catch (Exception e) {
+            System.out.println("An error occurred while sending your request: ");
+            e.printStackTrace();
+        }
         return currentResponse;
     }
 
     // adds 24h volume & market cap in [convert] currency
     public String getGlobalData(String convert) {
-
+        try {
+            HttpResponse<String> response = Unirest.get("https://api.coinmarketcap.com/v1/global/?convert=" + convert)
+                    .header("market", "BTC-LTC")
+                    .header("cache-control", "no-cache")
+                    .asString();
+            currentResponse = response.getBody();
+        } catch (Exception e) {
+            System.out.println("An error occurred while sending your request: ");
+            e.printStackTrace();
+        }
         return currentResponse;
     }
 
