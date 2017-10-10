@@ -2,7 +2,7 @@
 A simple Java library that allows you to access the CoinMarketCap API for checking cryptocurrency information. Useful for Java developers looking to develop a cryptocurrency monitoring application!
 
 # Installation
-// still coming
+maven coming soon
 
 # Basic Usage
 
