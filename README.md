@@ -2,7 +2,7 @@
 A simple Java library that allows you to access the CoinMarketCap API for checking cryptocurrency information. Useful for Java developers looking to develop a cryptocurrency monitoring application!
 
 # Installation
-There are three ways to download this library. You can automatically download it through maven (easiest), download the jar, or install it yourself.
+There are three ways to download this library. You can automatically download it through maven (easiest), download the jar, or install/compile it yourself.
 
 For maven, add this dependency to your pom.xml file:
 
@@ -15,7 +15,7 @@ For maven, add this dependency to your pom.xml file:
 </dependency>
 ```
 
-To install it as a jar file, check out the jar release page here. Jars are released more than the maven dependencies and may include bug fixes/new features faster, but also require you to add it to your project yourself. 
+To install it as a jar file, check out the jar release page [here](https://github.com/Draylar/CoinMarketCap-Java-API-Wrapper/wiki/Version-Page). Jars are released more than the maven dependencies and may include bug fixes/new features faster, but also require you to add it to your project yourself. 
 
 # Basic Usage
 
@@ -62,6 +62,6 @@ The response:
 ]
 ```
 
-For a full tutorial on what you can do with this library, visit the wiki. 
+And there we go! To see more, visit the 
 
 
