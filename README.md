@@ -62,6 +62,6 @@ The response:
 ]
 ```
 
-And there we go! To see more, visit the 
+And there we go! To see more, visit the [wiki](https://github.com/Draylar/CoinMarketCap-Java-API-Wrapper/wiki).
 
 
